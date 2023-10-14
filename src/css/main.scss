@@ -1,0 +1,52 @@
+@import "./variaveis.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+
+    padding: 0 70px;
+}
+
+section {
+    width: 100%;
+    max-width: $largura_maxima;
+}
+
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: $cor_fontePreta;
+}
+
+h2 {
+
+}
+
+p, a  {
+    font-size: 24px;
+    font-weight: 500;
+    // color: $cor_fontePretaClara;
+    margin-bottom: 10px;
+}
+
+hr {
+    width: 100%;
+    margin: 100px auto;
+    color: red;
+    height: 1px;
+    background-color: $cor_fontePretaClara;
+    border-radius: 10px;
+    opacity: 0.8;
+
+}

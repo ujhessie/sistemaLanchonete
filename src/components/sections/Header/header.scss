@@ -1,0 +1,27 @@
+@import "../../../css/variaveis.scss";
+@import "../../../css/mixins.scss";
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: $largura_maxima;
+  height: 70px;
+  align-items: center;
+
+  .logoHeader {
+    font-weight: bold;
+    color: $cor_fontePreta;
+    font-size: 22px;
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  .botoesHeader {
+    display: flex;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,55 @@
+@import "../../../css/variaveis.scss";
+@import "../../../css/mixins.scss";
+
+#secInicio {
+    text-align: center;
+
+    .divImgs {
+        position: relative;
+        .capa {
+            width: 100%;
+            aspect-ratio: 30/9;
+            background-color: #bbb;
+            position: relative;
+            overflow: hidden;
+            
+            img {
+                object-fit: contain;
+                translate: 0 -20%;
+            }
+        }
+
+        .imgPerfil {
+            display: none;
+            width: 20%;
+            aspect-ratio: 1/1;
+            background-color: red;
+            border: 8px solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: 20px;
+            bottom: 50%;
+            transform: translate(0, 50%);
+        }
+    }
+
+    .texts {
+        margin-top: 100px;
+        color: $cor_fontePretaClara;
+    }
+
+    .botoes {
+        display: flex; 
+        justify-content: center;
+        gap: 20px;
+        margin-top: 45px;
+
+        .b1 {
+            @include a_botao;
+        }
+        .b2 {
+            @include a_botaoTransparente
+        }
+    }
+
+}

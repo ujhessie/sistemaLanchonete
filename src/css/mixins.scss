@@ -1,0 +1,27 @@
+@import "./variaveis.scss";
+
+
+// componentes
+@mixin a_botao{
+    color:  $cor_fonteBranca;
+    font-weight: 600;
+    background-color: $cor_principal;
+    display: inline-block;
+    border: 1px solid $cor_bordaClara;
+    padding: 20px 30px;
+    border-radius: 15px;
+}
+
+@mixin a_botaoTransparente{
+    @include a_botao();
+    background-color: transparent;
+    color: $cor_fontePretaClara;
+}
+
+
+// mixins de responsividade
+@mixin bp_mobile {
+    @media (max-width: $bg_mobile) {
+        @content
+    }
+}
