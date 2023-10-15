@@ -39,7 +39,7 @@ function CardProduto({ id }) {
     <div className="card-produto">
       <div className="div-img">
         <img src={produto.imagemUrl} alt={produto.nome} />
-        <span className="valor">R$ {produto.valor.toFixed(2)}</span>
+        <span className="valor">R$ {produto.valor}</span>
       </div>
       <h3 className="nome-produto">{produto.nome}</h3>
       <p className="desc-1">{produto.desc}</p>
