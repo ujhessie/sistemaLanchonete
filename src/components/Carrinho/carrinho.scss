@@ -1,0 +1,57 @@
+@import "../../css/variaveis.scss";
+@import "../../css/mixins.scss";
+
+#secCarrinho {
+  padding: 70px 40px;
+  position: fixed;
+  background-color: $cor_fonteBranca;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: -100%;
+  transition: 300ms ease-in-out;
+  z-index: 900;
+  opacity: 0;
+  overflow: scroll;
+  &.secCarrinhoAtiva {
+    left: 0;
+    opacity: 1;
+  }
+  .content {
+    // position: ;
+    width: 100%;
+
+    #carrinho {
+        ul {
+            
+        }
+    }
+  }
+
+  .botoes {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    background-color: $cor_fonteBranca;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+
+    .proximo {
+        @include a_botao {
+
+        }
+    }
+    .continuar {
+        @include a_botaoTransparente {
+
+        }
+    }
+  }
+
+
+}
+

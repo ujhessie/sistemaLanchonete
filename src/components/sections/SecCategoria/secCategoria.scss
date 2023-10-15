@@ -1,0 +1,53 @@
+@import "../../../css/variaveis.scss";
+@import "../../../css/mixins.scss";
+
+#secCategoria {
+    padding-bottom: 0;
+    
+    @include bp_tablet {
+        padding-bottom: 0;
+    }
+
+    @include bp_mobile {
+        padding-bottom: 0;
+    }
+    .content {
+        h2 {
+            color: $cor_fonteBranca;
+            background-color: $cor_principal;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav-catgorias {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            .item-nav {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 20px;
+                border-radius: 10px;
+                border: 1px solid $cor_bordaClara;
+                color: $cor_fontePreta;
+                opacity: 0.8;
+                font-weight: 600;
+                margin: 0;
+
+                img {
+                    display: block;
+                    margin: 0;
+                    aspect-ratio: 1/1;
+                    width: 40px;
+                    @include bp_tablet {
+                        width: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

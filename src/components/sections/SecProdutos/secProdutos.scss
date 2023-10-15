@@ -1,0 +1,33 @@
+@import "../../../css/variaveis.scss";
+@import "../../../css/mixins.scss";
+
+#secProdutos {
+    padding-top: 0;
+    @include bp_tablet {
+        padding-top: 0;
+    }
+    @include bp_mobile {
+        padding-top: 0;
+    }
+
+    .content {
+        h2 {
+            margin: 20px auto;
+        }
+
+        .divProdutos {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+
+            @include bp_tablet {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @include bp_mobile {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}

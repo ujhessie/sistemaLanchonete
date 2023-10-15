@@ -1,52 +1,91 @@
 @import "./variaveis.scss";
+@import "./mixins.scss";
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
 }
 
 .container1 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    padding: 0 70px;
-}
-
-section {
+  .content {
     width: 100%;
     max-width: $largura_maxima;
+    padding: 0 70px;
+  }
 }
-
 
 h1 {
-    font-size: 42px;
-    margin-bottom: 30px;
-    color: $cor_fontePreta;
+  font-size: 52px;
+  margin-bottom: 30px;
+
+  @include bp_tablet {
+    font-size: 32px;
+    line-height: 2rem;
+  }
+
+  @include bp_mobile {
+    // font-size: ;
+  }
 }
 
-h2 {
 
-}
 
-p, a  {
-    font-size: 24px;
-    font-weight: 500;
-    // color: $cor_fontePretaClara;
-    margin-bottom: 10px;
+p,
+a {
+  font-size: 16px;
+  font-weight: 500;
+  // color: $cor_fontePretaClara;
+  margin-bottom: 10px;
+
+  @include bp_tablet {
+    font-size: 14px;
+  }
+
+  @include bp_mobile {
+    // font-size: ;
+  }
 }
 
 hr {
-    width: 100%;
-    margin: 100px auto;
-    color: red;
-    height: 1px;
-    background-color: $cor_fontePretaClara;
-    border-radius: 10px;
-    opacity: 0.8;
+  width: 100%;
+  margin: 100px auto;
+  color: red;
+  height: 1px;
+  background-color: $cor_fontePretaClara;
+  border-radius: 10px;
+  opacity: 0.8;
+}
 
+section {
+  margin: 0 auto;
+  justify-content: center;
+  padding: 100px 70px;
+  width: 100%;
+
+  .content {
+    margin: 0 auto;
+    width: 100%;
+    max-width: $largura_maxima;
+  }
+
+  @include bp_tablet {
+    padding: 100px 30px;
+  }
+
+  @include bp_mobile {
+    padding: 100px 20px;
+  }
+}
+
+
+main {
+  position: relative;
 }
