@@ -23,7 +23,7 @@ function CardProduto({ id }) {
       // Se o produto não existe, crie um novo objeto
       const item = {
         nome: produto.nome,
-        valor: produto.valor,
+        valor: produto.valor || 0, // Certifica-se de que valor seja um número ou 0 se for indefinido
         urlImg: produto.imagemUrl,
         quantidade: 1,
       };
@@ -33,13 +33,21 @@ function CardProduto({ id }) {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
     // Dispare um evento personalizado para notificar outras partes do aplicativo
     window.dispatchEvent(new Event("carrinhoAtualizado"));
+
+    const iconCarrinhoElement = document.getElementById("iconCarrinho");
+  iconCarrinhoElement.classList.add("animate");
+
+  iconCarrinhoElement.addEventListener("animationend", () => {
+    // A animação terminou, remova a classe "animate"
+    iconCarrinhoElement.classList.remove("animate");
+  });
   }
 
   return (
     <div className="card-produto">
       <div className="div-img">
         <img src={produto.imagemUrl} alt={produto.nome} />
-        <span className="valor">R$ {produto.valor}</span>
+        <span className="valor">R$ {produto.valor !== undefined ? produto.valor : 'Valor desconhecido'}</span>
       </div>
       <h3 className="nome-produto">{produto.nome}</h3>
       <p className="desc-1">{produto.desc}</p>

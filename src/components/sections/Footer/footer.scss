@@ -1,0 +1,18 @@
+@import "../../../css/variaveis.scss";
+@import "../../../css/mixins.scss";
+
+footer {
+    color: $cor_fonteBranca;
+    background-color: $cor_fontePreta;
+
+    .desenvolvido {
+        margin: 0;
+        text-align: center;
+        padding:10px 20px;
+        a {
+            font-weight: 700;
+            color: $cor_fonteBranca;
+            text-decoration: underline;
+        }
+    }
+}

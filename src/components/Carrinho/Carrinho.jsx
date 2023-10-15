@@ -96,7 +96,7 @@ function Carrinho() {
   };
 
   return (
-    <section className="secCarrinhoAtiva" id="secCarrinho">
+    <section className="" id="secCarrinho">
       <div className="content">
         <div id="carrinho">
           <h1>Carrinho</h1>
@@ -105,7 +105,7 @@ function Carrinho() {
               <li key={index}>
                 <ProdutoCarrinho
                   nome={produto.nome}
-                  valor={produto.valor.toFixed(2)}
+                  valor={produto.valor}
                   quantidade={produto.quantidade}
                   imgUrl={produto.urlImg}
                   onAdicionar={() => adicionarAoCarrinho(index)} // Chame a função com o índice

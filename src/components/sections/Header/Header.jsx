@@ -24,7 +24,7 @@ function Header() {
                         <a href="#" className="itemNavHeader">Localização</a>
                     </nav> */}
         <div className="botoesHeader">
-          <div className="div-icon carrinho" onClick={()=> {mostrarCarrinho()}}>
+          <div className="div-icon carrinho" id="iconCarrinho" onClick={()=> {mostrarCarrinho()}}>
             <IoMdCart className="icon" />
           </div>
           <a href="#" className=" b1">

@@ -50,6 +50,9 @@
 
     .b1 {
       @include a_botaoTransparente;
+      @include bp_mobile {
+        display: none
+      }
     }
 
     .b2 {
@@ -63,7 +66,7 @@
       border: 1px solid $cor_bordaClara;
       width: 50px;
       aspect-ratio: 1/1;
-      transition: 300ms ease-in-out;
+      transition: 200ms ease-in-out;
       cursor: pointer;
 
       .icon {
@@ -102,5 +105,24 @@
         }
       }
     }
+  }
+}
+
+
+.animate {
+  animation-name: bounce; /* Nome da animação */
+  animation-duration: 0.5s; /* Duração da animação */
+  animation-timing-function: ease; /* Função de temporização (ease-in, ease-out, etc.) */
+  animation-iteration-count: 1; /* Número de vezes que a animação é reproduzida */
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.8); /* Escala inicial */
+    opacity: 0; /* Opacidade inicial */
+  }
+  100% {
+    transform: scale(1); /* Escala final */
+    opacity: 1; /* Opacidade final */
   }
 }

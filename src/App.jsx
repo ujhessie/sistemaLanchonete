@@ -7,6 +7,7 @@ import SecInicio from "./components/sections/secInicio/SecInicio";
 import SecCategoria from "./components/sections/SecCategoria/SecCategoria";
 import SecProdutos from "./components/sections/SecProdutos/SecProdutos";
 import Carrinho from "./components/Carrinho/Carrinho";
+import Footer from "./components/sections/Footer/Footer";
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
         <SecInicio />
         <SecCategoria />
         <SecProdutos />
-
       </main>
+      <Footer />
     </>
   );
 }
