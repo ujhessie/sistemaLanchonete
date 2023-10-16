@@ -35,6 +35,10 @@
   
   }
 
+  ul {
+    padding-bottom: 150px;
+  }
+
   .bottom {
     position: fixed;
     bottom: 0;
@@ -53,7 +57,9 @@
     .botoes {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 10px;
+
+      flex-direction: column;
     }
 
     .div-total {
@@ -62,7 +68,7 @@
       gap: 20px;
       p {
         font-family: 600;
-        font-size: 18px;
+        font-size: 14px;
         opacity: 0.8;
       }
     }
@@ -72,11 +78,12 @@
 
         }
         display: flex;
+        justify-content: center;
         gap: 20px;
         color: $cor_fonteBranca;
         p {
           font-weight: 600;
-          font-size: 16px;
+          font-size: 14px;
           margin: 0;
         }
         .div-icon {
@@ -92,7 +99,7 @@
     }
     .continuar {
         @include a_botaoTransparente {
-
+          font-size: 14px;
         }
 
     }

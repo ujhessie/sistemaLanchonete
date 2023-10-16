@@ -103,7 +103,7 @@ const produtos = [
     valor: 12.00,
     desc: "Coca Cola 2 litros",
     tipo: "bebida",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 14,
@@ -111,7 +111,7 @@ const produtos = [
     valor: 12.00,
     desc: "Guaraná Jesus 2 litros",
     tipo: "bebida",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 15,
@@ -119,7 +119,7 @@ const produtos = [
     valor: 8.00,
     desc: "Coca Cola 1 litro",
     tipo: "bebida",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 16,
@@ -127,7 +127,7 @@ const produtos = [
     valor: 8.00,
     desc: "Guaraná Jesus 1 litro",
     tipo: "bebida",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 17,
@@ -135,7 +135,7 @@ const produtos = [
     valor: 8.00,
     desc: "Fanta 1 litro",
     tipo: "bebida",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 18,
@@ -143,7 +143,7 @@ const produtos = [
     valor: 8.00,
     desc: "Guaraná Antártica 1 litro",
     tipo: "bebida",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   // Novos produtos do tipo "latinha" (adicionados)
   {
@@ -152,7 +152,7 @@ const produtos = [
     valor: 5.00,
     desc: "Coca Cola 350 ml",
     tipo: "latinha",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 20,
@@ -160,7 +160,7 @@ const produtos = [
     valor: 5.00,
     desc: "Guaraná Jesus 350 ml",
     tipo: "latinha",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 21,
@@ -168,7 +168,7 @@ const produtos = [
     valor: 5.00,
     desc: "Guaraná Antártica 350 ml",
     tipo: "latinha",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 22,
@@ -176,7 +176,7 @@ const produtos = [
     valor: 5.00,
     desc: "Fanta 350 ml",
     tipo: "latinha",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 23,
@@ -184,7 +184,7 @@ const produtos = [
     valor: 5.00,
     desc: "Coca Cola Zero 350 ml",
     tipo: "latinha",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 24,
@@ -192,7 +192,7 @@ const produtos = [
     valor: 5.00,
     desc: "Sprait 350 ml",
     tipo: "latinha",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
   {
     id: 25,
@@ -200,7 +200,7 @@ const produtos = [
     valor: 5.00,
     desc: "Peps 350 ml",
     tipo: "latinha",
-    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+    imagemUrl: "imgs/produtos/bebidas/cocaLata.png",
   },
 ];
 

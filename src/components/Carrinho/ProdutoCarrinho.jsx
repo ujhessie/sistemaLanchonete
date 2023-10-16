@@ -25,12 +25,12 @@ function ProdutoCarrinho({
   return (
     <div className="produto-carrinho">
       <div className="img-produto">
+        <span>R$ {valor} ({quantidade}x)</span>
         <img src={imgUrl} alt="" />
       </div>
       <div className="textos">
         <p className="nome">{nome}</p>
-        <p className="valor">R$ {valor} ({quantidade}x)</p>
-        <p className="tipo">Tipo: Churrasco</p>
+        <p className="valor"></p>
         <div className="acoes">
           <button onClick={() => onDiminuir(index)}>-</button>
           <input
