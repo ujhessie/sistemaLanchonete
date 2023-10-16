@@ -10,7 +10,7 @@ function SecInicio() {
             <h1>CHURRASCO DE QUALIDADE É AQUI!!</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
             <div className="botoes">
-              <a href="" className="b1">
+              <a href="#secCategoria" className="b1">
                 Cardápio
               </a>
               <a href="" className="b2">

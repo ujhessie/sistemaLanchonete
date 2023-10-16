@@ -15,6 +15,7 @@ function SecProdutos() {
             />
           ))}
         </div>
+        <h2>O que você quer beber?</h2>
       </div>
     </section>
   );

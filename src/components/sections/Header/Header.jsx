@@ -30,9 +30,9 @@ function Header() {
           <a href="#" className=" b1">
             Contato
           </a>
-          <a href="#" className="b2">
+          {/* <a href="#" className="b2">
             Cardápio
-          </a>
+          </a> */}
           {/* <a href="#">Menu</a> */}
           <div className="div-icon menu">
             <HiMenuAlt3 className="icon" />

@@ -9,7 +9,7 @@
   height: 100vh;
   top: 0;
   left: -100%;
-  transition: 300ms ease-in-out;
+  transition: 200ms ease-in-out;
   z-index: 900;
   opacity: 0;
   overflow: scroll;
@@ -17,6 +17,17 @@
     left: 0;
     opacity: 1;
   }
+
+  
+  h2 {
+    text-align: center;
+    background-color: $cor_principal;
+    padding: 10px;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: $cor_bordaClara;
+}
   .content {
     // position: ;
     width: 100%;
@@ -46,6 +57,14 @@
 
         }
     }
+  }
+
+  @include bp_tablet {
+    padding: 100px 30px;
+  }
+
+  @include bp_mobile {
+    padding: 100px 20px;
   }
 
 

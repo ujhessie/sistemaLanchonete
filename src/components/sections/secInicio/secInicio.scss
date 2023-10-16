@@ -51,7 +51,7 @@
       @include a_botao;
     }
     .b2 {
-      @include a_botaoTransparente;
+      @include a_botaoBranco;
     }
     @include bp_tablet {
       flex-direction: column;

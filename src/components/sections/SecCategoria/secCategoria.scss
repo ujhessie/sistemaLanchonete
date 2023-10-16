@@ -37,6 +37,7 @@
                 opacity: 0.8;
                 font-weight: 600;
                 margin: 0;
+                transition: 300ms ease-in-out;
 
                 img {
                     display: block;
@@ -47,6 +48,13 @@
                         width: 30px;
                     }
                 }
+                &:hover {
+                    background-color: $cor_principal;
+                    color: $cor_fonteBranca;
+                    opacity: 1;
+                    scale: 1.1;
+                }
+
             }
         }
     }

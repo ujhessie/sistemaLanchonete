@@ -99,7 +99,7 @@ function Carrinho() {
     <section className="" id="secCarrinho">
       <div className="content">
         <div id="carrinho">
-          <h1>Carrinho</h1>
+          <h2>Carrinho</h2>
           <ul>
             {carrinho.map((produto, index) => (
               <li key={index}>

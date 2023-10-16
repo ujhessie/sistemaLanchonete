@@ -13,7 +13,15 @@
     border-radius: 15px;
     margin: 0;
     cursor: pointer;
+    transition: 200ms ease-in-out;
+
+    &:hover {
+        scale: 0.99;
+        filter: brightness(90%)
+    }
+
     @content;
+
 }
 
 @mixin a_botaoTransparente{
@@ -22,7 +30,16 @@
     color: $cor_fontePretaClara;
     @content;
 }
-
+@mixin a_botaoBranco {
+    @include a_botao{
+        background-color: $cor_fonteBranca;
+        color: $cor_fontePreta;
+        &:hover {
+            background-color: $cor_principal;
+            color: $cor_fonteBranca;
+        }
+    }
+}
 
 // mixins de responsividade
 @mixin bp_tablet {

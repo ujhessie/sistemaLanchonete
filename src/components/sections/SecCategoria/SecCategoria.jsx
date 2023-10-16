@@ -8,22 +8,22 @@ function SecCategoria() {
         <nav className="nav-catgorias">
           <a href="#" className="item-nav">
             <img
-              src="https://ujhessie.github.io/miniLanchonete/img/icons/hamburguer.png"
-              alt=""
+              src="/imgs/icons/carne.png"
+              alt="icon churrasco"
             />
 
-            <span>Churrascos completos</span>
+            <span>Churrascos</span>
           </a>
           <a href="#" className="item-nav">
             <img
-              src="https://ujhessie.github.io/miniLanchonete/img/icons/hamburguer.png"
+              src="/imgs/icons/churrasco.png"
               alt=""
             />
             <span>Espetos</span>
           </a>
           <a href="#" className="item-nav">
             <img
-              src="https://ujhessie.github.io/miniLanchonete/img/icons/hamburguer.png"
+             src="/imgs/icons/refrigerantes.png"
               alt=""
             />
             <span>Bebidas</span>
