@@ -8,14 +8,28 @@ function SecProdutos() {
       <div className="content">
         <h2>Churrascos</h2>
         <div className="divProdutos">
-          {produtos.map((produto) => (
-            <CardProduto
-              key={produto.id}
-              id={produto.id}
-            />
-          ))}
+          {produtos
+            .filter((produto) => produto.tipo === "churrasco")
+            .map((produto) => (
+              <CardProduto key={produto.id} id={produto.id} />
+            ))}
         </div>
         <h2>O que você quer beber?</h2>
+        <div className="divProdutos">
+        {produtos
+            .filter((produto) => produto.tipo === "bebida")
+            .map((produto) => (
+              <CardProduto key={produto.id} id={produto.id} />
+            ))}
+        </div>
+        <h2>Prefere latinhas?</h2>
+        <div className="divProdutos">
+        {produtos
+            .filter((produto) => produto.tipo === "latinha")
+            .map((produto) => (
+              <CardProduto key={produto.id} id={produto.id} />
+            ))}
+        </div>
       </div>
     </section>
   );

@@ -29,7 +29,7 @@ function ProdutoCarrinho({
       </div>
       <div className="textos">
         <p className="nome">{nome}</p>
-        <p className="valor">R$ {valor}</p>
+        <p className="valor">R$ {valor} ({quantidade}x)</p>
         <p className="tipo">Tipo: Churrasco</p>
         <div className="acoes">
           <button onClick={() => onDiminuir(index)}>-</button>

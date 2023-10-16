@@ -4,35 +4,40 @@ const produtos = [
     nome: "Frango",
     valor: 16.00,
     desc: "Peito de frango grelhado",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 2,
     nome: "Carne e Frango",
     valor: 16.00,
     desc: "Carne e peito de frango grelhados",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 3,
     nome: "Carne e Toscana",
     valor: 18.00,
     desc: "Carne e linguiça toscana grelhadas",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 4,
     nome: "Carne Toscana e Frango",
     valor: 18.00,
     desc: "Carne, linguiça toscana e peito de frango grelhados",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 5,
     nome: "Alcatra e Maminha",
     valor: 18.00,
     desc: "Alcatra e maminha grelhadas",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 6,
@@ -40,50 +45,163 @@ const produtos = [
     valor: 22.00,
     promocao: true,
     desc: "Picanha grelhada",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 7,
     nome: "Carne de Sol",
     valor: 20.00,
     desc: "Carne de sol grelhada",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 8,
     nome: "Bisteca",
     valor: 25.00,
     desc: "Bisteca suína grelhada",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 9,
     nome: "Costelinha Suína",
     valor: 27.00,
     desc: "Costelinha suína grelhada",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 10,
     nome: "Panceta (ou Paleta Suína)",
     valor: 27.00,
     desc: "Panceta ou paleta suína grelhada",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 11,
     nome: "Toscana und",
     valor: 3.00,
     desc: "Linguiça toscana avulsa",
-    imagemUrl: "imgs/img-produto.jpg"
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
   },
   {
     id: 12,
     nome: "Toscana Recheada (Fatia)",
     valor: 12.00,
     desc: "Fatia de linguiça toscana recheada",
-    imagemUrl: "imgs/img-produto.jpg"
-  }
+    imagemUrl: "imgs/img-produto.jpg",
+    tipo: "churrasco",
+  },
+  // Produtos de bebidas (novos produtos)
+  {
+    id: 13,
+    nome: "Coca Cola 2L",
+    valor: 12.00,
+    desc: "Coca Cola 2 litros",
+    tipo: "bebida",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 14,
+    nome: "Guaraná Jesus 2L",
+    valor: 12.00,
+    desc: "Guaraná Jesus 2 litros",
+    tipo: "bebida",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 15,
+    nome: "Coca Cola 1L",
+    valor: 8.00,
+    desc: "Coca Cola 1 litro",
+    tipo: "bebida",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 16,
+    nome: "Guaraná Jesus 1L",
+    valor: 8.00,
+    desc: "Guaraná Jesus 1 litro",
+    tipo: "bebida",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 17,
+    nome: "Fanta 1L",
+    valor: 8.00,
+    desc: "Fanta 1 litro",
+    tipo: "bebida",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 18,
+    nome: "Guaraná Antártica 1L",
+    valor: 8.00,
+    desc: "Guaraná Antártica 1 litro",
+    tipo: "bebida",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  // Novos produtos do tipo "latinha" (adicionados)
+  {
+    id: 19,
+    nome: "Coca Cola 350ml",
+    valor: 5.00,
+    desc: "Coca Cola 350 ml",
+    tipo: "latinha",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 20,
+    nome: "Guaraná Jesus 350ml",
+    valor: 5.00,
+    desc: "Guaraná Jesus 350 ml",
+    tipo: "latinha",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 21,
+    nome: "Guaraná Antártica 350ml",
+    valor: 5.00,
+    desc: "Guaraná Antártica 350 ml",
+    tipo: "latinha",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 22,
+    nome: "Fanta 350ml",
+    valor: 5.00,
+    desc: "Fanta 350 ml",
+    tipo: "latinha",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 23,
+    nome: "Coca Cola Zero 350ml",
+    valor: 5.00,
+    desc: "Coca Cola Zero 350 ml",
+    tipo: "latinha",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 24,
+    nome: "Sprait 350ml",
+    valor: 5.00,
+    desc: "Sprait 350 ml",
+    tipo: "latinha",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
+  {
+    id: 25,
+    nome: "Peps 350ml",
+    valor: 5.00,
+    desc: "Peps 350 ml",
+    tipo: "latinha",
+    imagemUrl: "/imgs/produtos/bebidas/cocaLata.png",
+  },
 ];
 
 export default produtos;

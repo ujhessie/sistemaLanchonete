@@ -15,7 +15,7 @@ function Header() {
     <header className="header" id="header">
       <div className="content">
         <a href="3" className="logoHeader">
-          LOGO
+          <img src="/imgs/logo-header.png" alt="" />
         </a>
         {/* <nav>
                         <a href="#" className="itemNavHeader">Inicio</a>

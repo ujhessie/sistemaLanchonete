@@ -35,27 +35,66 @@
   
   }
 
-  .botoes {
+  .bottom {
     position: fixed;
     bottom: 0;
     left: 0;
-    display: flex;
+    
     background-color: $cor_fonteBranca;
     padding: 20px;
     border-radius: 10px 10px 0 0;
     width: 100%;
-    justify-content: center;
+    
+    
+    text-align: center;
+ 
     gap: 20px;
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .div-total {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      p {
+        font-family: 600;
+        font-size: 18px;
+        opacity: 0.8;
+      }
+    }
 
     .proximo {
         @include a_botao {
 
+        }
+        display: flex;
+        gap: 20px;
+        color: $cor_fonteBranca;
+        p {
+          font-weight: 600;
+          font-size: 16px;
+          margin: 0;
+        }
+        .div-icon {
+          position: relative;
+          .icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+          }
         }
     }
     .continuar {
         @include a_botaoTransparente {
 
         }
+
     }
   }
 

@@ -26,6 +26,7 @@ function CardProduto({ id }) {
         valor: produto.valor || 0, // Certifica-se de que valor seja um número ou 0 se for indefinido
         urlImg: produto.imagemUrl,
         quantidade: 1,
+        tipo: produto.tipo
       };
       carrinho.push(item);
     }

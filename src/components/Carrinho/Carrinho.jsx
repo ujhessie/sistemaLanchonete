@@ -1,12 +1,14 @@
+/* eslint-disable react/jsx-no-target-blank */
 import { useState, useEffect } from "react";
 import ProdutoCarrinho from "./ProdutoCarrinho";
 import "./carrinho.scss";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 function Carrinho() {
-  // Inicialize o estado do carrinho com um array vazio
   const [carrinho, setCarrinho] = useState([]);
+  const [quantidadeItens, setQuantidadeItens] = useState(0);
+  const [valorTotal, setValorTotal] = useState(0);
 
-  // Use useEffect para carregar o carrinho do localStorage no estado inicial
   useEffect(() => {
     const carrinhoJson = JSON.parse(localStorage.getItem("carrinho")) || [];
     setCarrinho(carrinhoJson);
@@ -18,10 +20,8 @@ function Carrinho() {
       }
     };
 
-    // Adicione um ouvinte de evento para o evento de armazenamento local
     window.addEventListener("storage", handleLocalStorageChange);
 
-    // Adicione um ouvinte de evento personalizado para atualizar o carrinho
     window.addEventListener("carrinhoAtualizado", () => {
       const carrinhoJson = JSON.parse(localStorage.getItem("carrinho")) || [];
       setCarrinho(carrinhoJson);
@@ -32,71 +32,93 @@ function Carrinho() {
     };
   }, []);
 
-  // Função para adicionar um item ao carrinho
   const adicionarAoCarrinho = (index) => {
-    // Crie uma cópia do carrinho para evitar mutações diretas no estado
     const novoCarrinho = [...carrinho];
-
-    // Verifique se o produto já existe no carrinho com base no índice
     if (novoCarrinho[index]) {
-      // Se o produto já existe, aumente a quantidade
       novoCarrinho[index].quantidade += 1;
     } else {
-      // Caso contrário, crie um novo objeto e adicione-o ao carrinho
       novoCarrinho[index] = {
-        ...carrinho[index], // Copie as propriedades do produto existente
-        quantidade: 1, // Defina a quantidade como 1
+        ...carrinho[index],
+        quantidade: 1,
       };
     }
-
-    // Atualize o carrinho e o localStorage
     setCarrinho(novoCarrinho);
     localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
   };
 
-  // Função para diminuir a quantidade de um item no carrinho
   const diminuirQuantidadeNoCarrinho = (index) => {
-    // Crie uma cópia do carrinho para evitar mutações diretas no estado
     const novoCarrinho = [...carrinho];
-
-    // Verifique se o produto já existe no carrinho com base no índice
     if (novoCarrinho[index]) {
-      // Se o produto já existe e a quantidade é maior que 1, diminua a quantidade
       if (novoCarrinho[index].quantidade > 1) {
         novoCarrinho[index].quantidade -= 1;
       } else {
-        // Caso contrário, remova o produto do carrinho
         novoCarrinho.splice(index, 1);
       }
-
-      // Atualize o carrinho e o localStorage
       setCarrinho(novoCarrinho);
       localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
     }
   };
 
-  // Função para remover um item do carrinho com base no índice
   const removerDoCarrinho = (index) => {
     const novoCarrinho = [...carrinho];
     novoCarrinho.splice(index, 1);
-
     setCarrinho(novoCarrinho);
     localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
   };
 
-  // Função para atualizar a quantidade de um item no carrinho
   const atualizarQuantidadeNoCarrinho = (index, novaQuantidade) => {
     if (novaQuantidade >= 1) {
       const novoCarrinho = [...carrinho];
       novoCarrinho[index].quantidade = novaQuantidade;
-
       setCarrinho(novoCarrinho);
       localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
     }
   };
 
+  const fecharCarrinho = () => {
+    const secCarrinho = document.querySelector("#secCarrinho");
+    secCarrinho.classList.remove("secCarrinhoAtiva");
+  };
+
+  // Calcula a quantidade de itens no carrinho
+  const calcularQuantidadeItens = () => {
+    const quantidadeItens = carrinho.reduce(
+      (total, produto) => total + produto.quantidade,
+      0
+    );
+    setQuantidadeItens(quantidadeItens);
+  };
+
+  // Calcula o valor total
+  const calcularValorTotal = () => {
+    const valorTotal = carrinho.reduce(
+      (total, produto) => total + produto.valor * produto.quantidade,
+      0
+    );
+    setValorTotal(valorTotal);
+  };
+
+  useEffect(() => {
+    calcularQuantidadeItens();
+    calcularValorTotal();
+  }, [carrinho]);
+
+  const gerarLinkWhatsApp = () => {
+    const numeroTelefone = "98988740103"; // Substitua pelo seu número de telefone
+    const mensagemItens = carrinho.map((produto) => {
+      return `${produto.quantidade}x ${produto.nome}: R$${(produto.valor * produto.quantidade).toFixed(2)}`;
+    }).join("\n");
+
+    const mensagemTotal = `Total: R$${valorTotal}`;
+
+    const mensagem = `Olá, estou interessado em fazer uma compra! Meu carrinho: \n\n${mensagemItens}\n${mensagemTotal}`;
+    const mensagemCodificada = encodeURIComponent(mensagem);
+
+    return `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${mensagemCodificada}`;
+  };
+
   return (
-    <section className="" id="secCarrinho">
+    <section className="secCarrinho" id="secCarrinho">
       <div className="content">
         <div id="carrinho">
           <h2>Carrinho</h2>
@@ -108,8 +130,8 @@ function Carrinho() {
                   valor={produto.valor}
                   quantidade={produto.quantidade}
                   imgUrl={produto.urlImg}
-                  onAdicionar={() => adicionarAoCarrinho(index)} // Chame a função com o índice
-                  onDiminuir={() => diminuirQuantidadeNoCarrinho(index)} // Adicione a função onRemover
+                  onAdicionar={() => adicionarAoCarrinho(index)}
+                  onDiminuir={() => diminuirQuantidadeNoCarrinho(index)}
                   onRemover={() => {
                     removerDoCarrinho(index);
                   }}
@@ -120,13 +142,22 @@ function Carrinho() {
             ))}
           </ul>
         </div>
-        <div className="botoes">
-          <a href="#" className="continuar">
-            Continuar comprando
-          </a>
-          <a href="#" className="proximo">
-            Próximo
-          </a>
+        <div className="bottom">
+          <div className="div-total">
+            <p>Itens: {quantidadeItens}</p>
+            <p>Total: R$ {valorTotal}</p>
+          </div>
+          <div className="botoes">
+            <a href="#" className="continuar" onClick={fecharCarrinho}>
+              Continuar comprando
+            </a>
+            <a href={gerarLinkWhatsApp()} className="proximo" target="_blank">
+              <p>Finalizar pedido</p>
+              <div className="div-icon">
+                <AiOutlineArrowRight className="icon" />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
