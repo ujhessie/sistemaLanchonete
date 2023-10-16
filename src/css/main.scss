@@ -40,8 +40,6 @@ h1 {
   }
 }
 
-
-
 p,
 a {
   font-size: 16px;
@@ -89,7 +87,58 @@ section {
   }
 }
 
-
 main {
   position: relative;
+}
+
+#divCArrinhoAbsolute {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  @include a_botao;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 800;
+  background-color: $cor_principal;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  p {
+    margin: 0;
+    font-weight: 600;
+    color: white;
+    
+  }
+
+  .div-icon {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    width: 30px;
+    aspect-ratio: 1/1;
+    padding: 8px;
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+    }
+  }
+
+  @include bp_tablet {
+      p {
+        display: none;
+      }
+      .div-icon {
+        width: 0;
+        border-radius: 50%;
+      }
+
+    }
 }

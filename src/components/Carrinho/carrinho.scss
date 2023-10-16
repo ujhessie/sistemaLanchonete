@@ -12,10 +12,13 @@
   transition: 200ms ease-in-out;
   z-index: 900;
   opacity: 0;
-  overflow: scroll;
+  overflow: hidden;
+  visibility: hidden;
   &.secCarrinhoAtiva {
     left: 0;
     opacity: 1;
+    overflow: scroll;
+    visibility: visible;
   }
 
   
