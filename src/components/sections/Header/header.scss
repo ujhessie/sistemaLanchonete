@@ -111,6 +111,12 @@
       }
     }
   }
+  &.scrolling {
+    // Estilos específicos para o header quando o usuário está rolando para baixo
+    // Por exemplo, pode definir 'display: none;' para escondê-lo
+
+    display: none;
+  }
 }
 
 

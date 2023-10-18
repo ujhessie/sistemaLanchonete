@@ -1,8 +1,33 @@
+import  { useState, useEffect } from "react";
 import "./header.scss";
 import { IoMdCart } from "react-icons/io";
 import { HiMenuAlt3 } from "react-icons/hi";
 
 function Header() {
+
+  const [scrolling, setScrolling] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const isScrollingDown = currentScrollPos > prevScrollPos;
+
+      if (isScrollingDown) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
 
   function mostrarCarrinho() {
     const secCarrinho = document.querySelector("#secCarrinho")
@@ -12,10 +37,10 @@ function Header() {
   }
 
   return (
-    <header className="header" id="header">
+    <header className={`header ${scrolling ? "scrolling" : ""}`} id="header">
       <div className="content">
         <a href="3" className="logoHeader">
-          <img src="/imgs/logo-header.png" alt="" />
+          <img src="imgs/logo-header.png" alt="" />
         </a>
         {/* <nav>
                         <a href="#" className="itemNavHeader">Inicio</a>

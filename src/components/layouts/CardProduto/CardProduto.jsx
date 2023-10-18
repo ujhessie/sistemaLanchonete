@@ -1,9 +1,13 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 import "./cardProduto.scss";
 import produtos from "../../produtos";
+import { IoMdAddCircle } from "react-icons/io";
 
+// eslint-disable-next-line react/prop-types
 function CardProduto({ id }) {
-  // Função para encontrar o produto com base no id
+  const [showMessage, setShowMessage] = useState(false); // Definido fora da função
+
   const produto = produtos.find((item) => item.id === id);
 
   if (!produto) {
@@ -23,43 +27,56 @@ function CardProduto({ id }) {
       // Se o produto não existe, crie um novo objeto
       const item = {
         nome: produto.nome,
-        valor: produto.valor || 0, // Certifica-se de que valor seja um número ou 0 se for indefinido
+        valor: produto.valor || 0,
         urlImg: produto.imagemUrl,
         quantidade: 1,
-        tipo: produto.tipo
+        tipo: produto.tipo,
       };
       carrinho.push(item);
     }
 
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    // Dispare um evento personalizado para notificar outras partes do aplicativo
     window.dispatchEvent(new Event("carrinhoAtualizado"));
 
     const iconCarrinhoElement = document.getElementById("iconCarrinho");
-  iconCarrinhoElement.classList.add("animate");
+    iconCarrinhoElement.classList.add("animate");
 
-  iconCarrinhoElement.addEventListener("animationend", () => {
-    // A animação terminou, remova a classe "animate"
-    iconCarrinhoElement.classList.remove("animate");
-  });
+    iconCarrinhoElement.addEventListener("animationend", () => {
+      iconCarrinhoElement.classList.remove("animate");
+    });
+
+    // Agora, definimos o estado showMessage para exibir a mensagem
+    setShowMessage(true);
+
+    // Configuramos um timeout para ocultar a mensagem após um período de tempo
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 3000); // 3 segundos em milissegundos
   }
 
   return (
     <div className="card-produto">
       <div className="div-img">
         <img src={produto.imagemUrl} alt={produto.nome} />
-        <span className="valor">R$ {produto.valor !== undefined ? produto.valor : 'Valor desconhecido'}</span>
+        <span className="valor">
+          R${" "}
+          {produto.valor !== undefined ? produto.valor : "Valor desconhecido"}
+        </span>
       </div>
-      <h3 className="nome-produto">{produto.nome}</h3>
-      <p className="desc-1">{produto.desc}</p>
+      <div className="texts">
+        <h3 className="nome-produto">{produto.nome}</h3>
+        <p className="desc-1">{produto.desc}</p>
+      </div>
       <button
         className="botao-adicionar-produto"
         onClick={() => {
           adicionarAoCarrinho();
         }}
       >
-        Adicionar ao Carrinho
+        <IoMdAddCircle className="icon" />
+        <span>Adicionar</span>
       </button>
+      {showMessage && <div className="mensagem-carrinho">Item adicionado ao carrinho</div>}
     </div>
   );
 }

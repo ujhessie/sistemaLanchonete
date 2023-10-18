@@ -6,7 +6,7 @@ function SecProdutos() {
   return (
     <section id="secProdutos">
       <div className="content">
-        <h2>Churrascos</h2>
+        <h2 id="catChurrascos">Churrascos</h2>
         <div className="divProdutos">
           {produtos
             .filter((produto) => produto.tipo === "churrasco")
@@ -14,7 +14,7 @@ function SecProdutos() {
               <CardProduto key={produto.id} id={produto.id} />
             ))}
         </div>
-        <h2>O que você quer beber?</h2>
+        <h2 id="catBebidas">O que você quer beber?</h2>
         <div className="divProdutos">
         {produtos
             .filter((produto) => produto.tipo === "bebida")

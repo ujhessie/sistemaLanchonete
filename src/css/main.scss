@@ -96,7 +96,7 @@ main {
   cursor: pointer;
   @include a_botao;
   position: fixed;
-  bottom: 10px;
+  bottom: -30px;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 800;
@@ -114,6 +114,7 @@ main {
   .div-icon {
     display: flex;
     gap: 10px;
+    margin-right: 20px;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -121,6 +122,7 @@ main {
     width: 30px;
     aspect-ratio: 1/1;
     padding: 8px;
+  
 
     .icon {
       position: absolute;
@@ -133,7 +135,7 @@ main {
 
   @include bp_tablet {
       p {
-        display: none;
+        font-size: 10px;
       }
       .div-icon {
         width: 0;
@@ -141,4 +143,16 @@ main {
       }
 
     }
+}
+
+
+.main-carrinho-ativo {
+  
+}
+main {
+  z-index: 0;
+}
+
+h2 {
+  font-size: 16px;
 }

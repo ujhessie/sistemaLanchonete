@@ -105,9 +105,13 @@ function Carrinho() {
 
   const gerarLinkWhatsApp = () => {
     const numeroTelefone = "98988740103"; // Substitua pelo seu número de telefone
-    const mensagemItens = carrinho.map((produto) => {
-      return `${produto.quantidade}x ${produto.nome}: R$${(produto.valor * produto.quantidade).toFixed(2)}`;
-    }).join("\n");
+    const mensagemItens = carrinho
+      .map((produto) => {
+        return `${produto.quantidade}x ${produto.nome}: R$${(
+          produto.valor * produto.quantidade
+        ).toFixed(2)}`;
+      })
+      .join("\n");
 
     const mensagemTotal = `Total: R$${valorTotal}`;
 
@@ -115,7 +119,16 @@ function Carrinho() {
     const mensagemCodificada = encodeURIComponent(mensagem);
 
     return `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${mensagemCodificada}`;
+
   };
+
+  const limparCarrinho = () => {
+    setCarrinho([]); // Define o carrinho como vazio
+    localStorage.removeItem("carrinho"); // Remove os itens do carrinho do armazenamento local
+    calcularQuantidadeItens(); // Recalcula a quantidade de itens no carrinho (deve ser zero)
+    calcularValorTotal(); // Recalcula o valor total (deve ser zero)
+  };
+  
 
   return (
     <section className="secCarrinho" id="secCarrinho">
@@ -148,9 +161,14 @@ function Carrinho() {
             <p>Total: R$ {valorTotal}</p>
           </div>
           <div className="botoes">
-            <a href="#" className="continuar" onClick={fecharCarrinho}>
-              Continuar comprando
-            </a>
+            <div className="div-flex">
+              <a href="#" className="limpar" onClick={limparCarrinho}>
+                Limpar carrinho
+              </a>
+              <a href="#" className="continuar" onClick={fecharCarrinho}>
+                Continuar comprando
+              </a>
+            </div>
             <a href={gerarLinkWhatsApp()} className="proximo" target="_blank">
               <p>Finalizar pedido</p>
               <div className="div-icon">

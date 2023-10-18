@@ -6,7 +6,7 @@ function SecCategoria() {
       <div className="content">
         <h2>O que você procura?</h2>
         <nav className="nav-catgorias">
-          <a href="#" className="item-nav">
+          <a href="#catChurrascos" className="item-nav">
             <img
               src="imgs/icons/carne.png"
               alt="icon churrasco"
@@ -14,14 +14,14 @@ function SecCategoria() {
 
             <span>Churrascos</span>
           </a>
-          <a href="#" className="item-nav">
+          {/* <a href="#catBebidas" className="item-nav">
             <img
               src="imgs/icons/churrasco.png"
               alt=""
             />
             <span>Espetos</span>
-          </a>
-          <a href="#" className="item-nav">
+          </a> */}
+          <a href="#catBebidas" className="item-nav">
             <img
              src="imgs/icons/refrigerantes.png"
               alt=""
