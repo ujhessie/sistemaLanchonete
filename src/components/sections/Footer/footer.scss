@@ -9,6 +9,7 @@ footer {
   padding: 0px 70px;
   border-radius: 30px 30px 0 0;
   text-align: center;
+  z-index: 0;
 
   .destaque {
     color: $cor_principal;
@@ -32,6 +33,7 @@ footer {
 
   .card-redes-sociais {
     .div-redes-sociais {
+      
         margin-top: 20px;
         display: flex;
         justify-content: center;
@@ -53,6 +55,7 @@ footer {
                 width: 40px;
                 aspect-ratio: 1/1;
                 border-radius: 10px;
+                z-index: -01;
                 .icon {
                     color: $cor_fonteBranca;
                     position: absolute;
