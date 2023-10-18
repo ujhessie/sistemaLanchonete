@@ -76,7 +76,7 @@ function CardProduto({ id }) {
         <IoMdAddCircle className="icon" />
         <span>Adicionar</span>
       </button>
-      {showMessage && <div className="mensagem-carrinho">Item adicionado ao carrinho</div>}
+      {showMessage && <p className="mensagem-carrinho">Item adicionado ao carrinho</p>}
     </div>
   );
 }

@@ -88,16 +88,11 @@
     }
 
     .carrinho {
-      background-color: $cor_principal;
+      @include a_botao;
       .icon {
         color: $cor_fonteBranca;
       }
-      &:hover {
-        background-color: $cor_fonteBranca;
-        .icon {
-          color: $cor_fontePreta;
-        }
-      }
+   
     }
 
     .menu {
@@ -115,7 +110,7 @@
     // Estilos específicos para o header quando o usuário está rolando para baixo
     // Por exemplo, pode definir 'display: none;' para escondê-lo
 
-    display: none;
+    
   }
 }
 

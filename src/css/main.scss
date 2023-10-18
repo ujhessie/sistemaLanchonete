@@ -92,11 +92,13 @@ main {
 }
 
 #divCArrinhoAbsolute {
+  z-index: 900;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  transition: 200ms ease-in-out;
   @include a_botao;
   position: fixed;
-  bottom: -30px;
+  bottom: -20px;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 800;
@@ -104,6 +106,10 @@ main {
   padding: 20px;
   border-radius: 10px;
   display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 70%;
+  max-width: 1200px;
   p {
     margin: 0;
     font-weight: 600;
@@ -135,7 +141,7 @@ main {
 
   @include bp_tablet {
       p {
-        font-size: 10px;
+        font-size: 12px;
       }
       .div-icon {
         width: 0;
@@ -155,4 +161,18 @@ main {
 
 h2 {
   font-size: 16px;
+}
+
+.slide-in {
+  animation: slideIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.1s; /* Adicione um pequeno atraso para uma transição suave */
+}
+
+@keyframes slideIn {
+  from {
+    bottom: -20px;
+  }
+  to {
+    bottom: 20px;
+  }
 }

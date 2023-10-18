@@ -1,37 +1,38 @@
-/* eslint-disable react/jsx-no-target-blank */
 import { useState, useEffect } from "react";
 import ProdutoCarrinho from "./ProdutoCarrinho";
 import "./carrinho.scss";
-import { AiOutlineArrowRight } from "react-icons/ai";
 
 function Carrinho() {
+  // Definindo os estados para o carrinho, quantidade de itens e valor total
   const [carrinho, setCarrinho] = useState([]);
   const [quantidadeItens, setQuantidadeItens] = useState(0);
   const [valorTotal, setValorTotal] = useState(0);
 
-  useEffect(() => {
+  // Função para atualizar o carrinho a partir do armazenamento local
+  const atualizarCarrinho = () => {
     const carrinhoJson = JSON.parse(localStorage.getItem("carrinho")) || [];
     setCarrinho(carrinhoJson);
+  };
+
+  // Use useEffect para carregar o carrinho do armazenamento local e ouvir eventos de atualização do carrinho
+  useEffect(() => {
+    atualizarCarrinho();
 
     const handleLocalStorageChange = (e) => {
       if (e.key === "carrinho") {
-        const novoCarrinho = JSON.parse(e.newValue) || [];
-        setCarrinho(novoCarrinho);
+        atualizarCarrinho();
       }
     };
 
     window.addEventListener("storage", handleLocalStorageChange);
 
-    window.addEventListener("carrinhoAtualizado", () => {
-      const carrinhoJson = JSON.parse(localStorage.getItem("carrinho")) || [];
-      setCarrinho(carrinhoJson);
-    });
-
+    // Removendo o listener quando o componente é desmontado
     return () => {
       window.removeEventListener("storage", handleLocalStorageChange);
     };
   }, []);
 
+  // Função para adicionar um item ao carrinho
   const adicionarAoCarrinho = (index) => {
     const novoCarrinho = [...carrinho];
     if (novoCarrinho[index]) {
@@ -43,9 +44,12 @@ function Carrinho() {
       };
     }
     setCarrinho(novoCarrinho);
+
+    // Atualizar o carrinho no armazenamento local
     localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
   };
 
+  // Função para diminuir a quantidade de um item no carrinho
   const diminuirQuantidadeNoCarrinho = (index) => {
     const novoCarrinho = [...carrinho];
     if (novoCarrinho[index]) {
@@ -55,32 +59,41 @@ function Carrinho() {
         novoCarrinho.splice(index, 1);
       }
       setCarrinho(novoCarrinho);
+
+      // Atualizar o carrinho no armazenamento local
       localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
     }
   };
 
+  // Função para remover um item do carrinho
   const removerDoCarrinho = (index) => {
     const novoCarrinho = [...carrinho];
     novoCarrinho.splice(index, 1);
     setCarrinho(novoCarrinho);
+
+    // Atualizar o carrinho no armazenamento local
     localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
   };
 
+  // Função para atualizar a quantidade de um item no carrinho
   const atualizarQuantidadeNoCarrinho = (index, novaQuantidade) => {
     if (novaQuantidade >= 1) {
       const novoCarrinho = [...carrinho];
       novoCarrinho[index].quantidade = novaQuantidade;
       setCarrinho(novoCarrinho);
+
+      // Atualizar o carrinho no armazenamento local
       localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
     }
   };
 
+  // Função para fechar a seção do carrinho
   const fecharCarrinho = () => {
     const secCarrinho = document.querySelector("#secCarrinho");
     secCarrinho.classList.remove("secCarrinhoAtiva");
   };
 
-  // Calcula a quantidade de itens no carrinho
+  // Função para calcular a quantidade de itens no carrinho
   const calcularQuantidadeItens = () => {
     const quantidadeItens = carrinho.reduce(
       (total, produto) => total + produto.quantidade,
@@ -89,7 +102,7 @@ function Carrinho() {
     setQuantidadeItens(quantidadeItens);
   };
 
-  // Calcula o valor total
+  // Função para calcular o valor total do carrinho
   const calcularValorTotal = () => {
     const valorTotal = carrinho.reduce(
       (total, produto) => total + produto.valor * produto.quantidade,
@@ -98,11 +111,13 @@ function Carrinho() {
     setValorTotal(valorTotal);
   };
 
+  // Use useEffect para recalcular a quantidade de itens e valor total sempre que o carrinho for atualizado
   useEffect(() => {
     calcularQuantidadeItens();
     calcularValorTotal();
   }, [carrinho]);
 
+  // Função para gerar o link do WhatsApp com os itens do carrinho
   const gerarLinkWhatsApp = () => {
     const numeroTelefone = "98988740103"; // Substitua pelo seu número de telefone
     const mensagemItens = carrinho
@@ -119,16 +134,30 @@ function Carrinho() {
     const mensagemCodificada = encodeURIComponent(mensagem);
 
     return `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${mensagemCodificada}`;
-
   };
 
+  // Função para limpar o carrinho
   const limparCarrinho = () => {
     setCarrinho([]); // Define o carrinho como vazio
     localStorage.removeItem("carrinho"); // Remove os itens do carrinho do armazenamento local
     calcularQuantidadeItens(); // Recalcula a quantidade de itens no carrinho (deve ser zero)
     calcularValorTotal(); // Recalcula o valor total (deve ser zero)
   };
-  
+
+  // Função para mostrar a mensagem de confirmação e redirecionar para o WhatsApp
+  const mostrarMensagem = () => {
+    if (carrinho.length === 0) {
+      alert("Você ainda não tem itens no carrinho");
+    } else {
+      const confirmaRedirecionamento = window.confirm(
+        "Você será redirecionado para o WhatsApp. Por favor, apenas envie a mensagem predefinida."
+      );
+
+      if (confirmaRedirecionamento) {
+        window.open(gerarLinkWhatsApp());
+      }
+    }
+  };
 
   return (
     <section className="secCarrinho" id="secCarrinho">
@@ -165,16 +194,13 @@ function Carrinho() {
               <a href="#" className="limpar" onClick={limparCarrinho}>
                 Limpar carrinho
               </a>
-              <a href="#" className="continuar" onClick={fecharCarrinho}>
+              <button  className="continuar" onClick={fecharCarrinho}>
                 Continuar comprando
-              </a>
+              </button>
             </div>
-            <a href={gerarLinkWhatsApp()} className="proximo" target="_blank">
-              <p>Finalizar pedido</p>
-              <div className="div-icon">
-                <AiOutlineArrowRight className="icon" />
-              </div>
-            </a>
+            <button onClick={mostrarMensagem} className="proximo">
+              Finalizar pedido
+            </button>
           </div>
         </div>
       </div>

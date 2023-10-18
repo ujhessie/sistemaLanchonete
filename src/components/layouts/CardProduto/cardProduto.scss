@@ -59,6 +59,7 @@
     margin-top: 5px;
     width: 100%;
   
+  
 
     @include a_botao {
         font-size: 14px;
@@ -87,7 +88,7 @@
   @include bp_mobile {
     display: grid;
     gap: 20px;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 4fr 1fr;
     
 
     .div1 {
@@ -103,6 +104,10 @@
       flex-direction: column;
       justify-content: end;
       position: relative;
+      background-color: transparent;
+      box-shadow: none;
+      border: 1px solid transparent;
+      
       
 
       .icon {
@@ -110,7 +115,12 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 40px;
+        font-size: 50px;
+        color: $cor_principal;
+      }
+
+      span {
+        display: none;
       }
       
     }

@@ -9,6 +9,8 @@ import Carrinho from "./components/Carrinho/Carrinho";
 import Footer from "./components/sections/Footer/Footer";
 
 function App() {
+  // No início do seu componente App
+const [animateCart, setAnimateCart] = useState(false);
   const [itemCount, setItemCount] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
 
@@ -19,6 +21,13 @@ function App() {
     const valorTotal = carrinho.reduce((total, item) => total + item.valor * item.quantidade, 0);
     setItemCount(quantidade);
     setTotalValue(valorTotal);
+
+    setItemCount(quantidade);
+setTotalValue(valorTotal);
+setAnimateCart(true); // Ativar a animação
+setTimeout(() => {
+  setAnimateCart(false); // Desativar a animação após um período curto
+}, 300); // Define a duração da animação em milissegundos
   };
 
   // Use useEffect para ouvir eventos de atualização do carrinho
@@ -42,16 +51,16 @@ function App() {
       <main className=".main-carrinho-ativo">
         <Carrinho />
         <div
-          className="div-carrinho-absolute"
-          id="divCArrinhoAbsolute"
-          onClick={() => {
-            mostrarCarrinho();
-          }}
-        >
+  className={`div-carrinho-absolute ${animateCart ? 'slide-in' : ''}`}
+  id="divCArrinhoAbsolute"
+  onClick={() => {
+    mostrarCarrinho();
+  }}
+>
           <div className="div-icon">
             <IoMdCart className="icon" />
           </div>
-          <p>Mostrar Carrinho<br/> Itens: ({itemCount}) Total: R$ {totalValue}</p>
+          <p>Mostrar Carrinho Itens: ({itemCount}) Total: R$ {totalValue}</p>
         </div>
         <SecInicio />
         <SecCategoria />
