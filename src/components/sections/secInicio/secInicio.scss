@@ -9,9 +9,9 @@
 
   .content {
     .div-flex {
-
+      margin-top: 40px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
 
       @include bp_tablet {
         grid-template-columns: 1fr;
@@ -23,6 +23,20 @@
           text-align: center;
         }
 
+        .projetada {
+          opacity: 0.8;
+          font-size: 12px;
+          margin: 0;
+
+           a{
+            cursor: pointer;
+            text-decoration: underline;
+            color: $cor_fonteBranca;
+            font-weight: 600;
+           }
+
+        }
+
         .bem-vindo {
           color: $cor_principal;
           display: inline-block;
@@ -31,10 +45,6 @@
           background-color: $cor_fonteBranca;
           border-radius: 8px;
           padding: 8px;
-        }
-
-        h1{
-          line-height: 3.5rem;
         }
       }
     }
@@ -59,9 +69,12 @@
   }
 
   .ver-mais {
+    display: block;
     font-weight: 600;
     color: $cor_fonteBranca;
-    margin-top: 20px;
+    margin-top: 40px;
     opacity: 0.8;
+    cursor: pointer;
+
   }
 }

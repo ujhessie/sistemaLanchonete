@@ -1,6 +1,12 @@
 import "./secInicio.scss";
 
 function SecInicio() {
+  function mostrarCarrinho() {
+    const secCarrinho = document.querySelector("#secCarrinho")
+
+    // secCarrinho.classList.toggle("")
+    secCarrinho.classList.toggle("secCarrinhoAtiva")
+  }
   return (
     <section id="secInicio">
       <div className="content">
@@ -8,17 +14,22 @@ function SecInicio() {
           <div className="texts">
             <p className="bem-vindo">Seja bem vindo</p>
             <h1>CHURRASCO DE QUALIDADE É AQUI!!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            <p>Sinta o sabor da liberdade...</p>
+            <div className="div-redes-sociais">
+              <a href="#">#</a>
+              <a href="#">#</a>
+              <a href="#">#</a>
+            </div>
             <div className="botoes">
               <a href="#secCategoria" className="b1">
                 Cardápio
               </a>
-              <a href="" className="b2">
+              <button className="b2" onClick={mostrarCarrinho}>
                 Finalizar pedidos
-              </a>
+              </button>
             </div>
-            <p>Página projetada e desenvolvida por Jesse Rodrigues</p>
-            <a href="#" className="ver-mais">
+            <p className="projetada">Página projetada e desenvolvida por <a href="https://ujhessie.github.io/ujhessie">Jesse Rodrigues</a></p>
+            <a href="#secCategoria" className="ver-mais">
               Role a página
             </a>
           </div>

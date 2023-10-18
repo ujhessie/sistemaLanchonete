@@ -137,6 +137,13 @@
     }
   }
 }
+
+.mensagem-carrinho {
+  font-weight: 600;
+  color: $cor_principal;
+  transition: 300ms ease-in-out;
+}
+
 // .mensagem-carrinho {
 //   background-color: #3498db;
 //   color: #fff;
